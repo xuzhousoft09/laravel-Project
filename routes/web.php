@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cookie/set','CookieController@setCookie');
+Route::get('/cookie/get','CookieController@getCookie');
+
+Route::get('/basic_response', function () {
+return 'Hello World';
+});
+
+Route::get('/header',function() {
+return response("Hello", 200)->header('Content-Type', 'text/html');
+});
+
+Route::get('/cookie',function() {
+return response("Hello", 200)->header('Content-Type', 'text/html')
+->withcookie('name','Virat Gandhi');
+});
